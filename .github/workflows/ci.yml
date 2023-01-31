@@ -1,0 +1,17 @@
+name: CALCULADORA
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v2
+        env:
+          TEST_NAME: calculadoraTest
+        with:
+          configuration: test/phpunit.xml
+          args: --coverage-text
